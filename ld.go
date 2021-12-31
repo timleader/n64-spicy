@@ -1,4 +1,4 @@
-package spicy
+package main
 
 import (
 	"bytes"

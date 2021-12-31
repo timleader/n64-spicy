@@ -4,7 +4,6 @@ import (
 	flag "github.com/ogier/pflag"
 	log "github.com/sirupsen/logrus"
 	"github.com/trhodeos/n64rom"
-	"github.com/trhodeos/spicy"
 	"io/ioutil"
 	"os"
 )
@@ -96,12 +95,16 @@ func main() {
 	}
 	defer f.Close()
 
-	gcc := spicy.NewRunner(*cpp_command)
-	ld := spicy.NewRunner(*ld_command)
-	as := spicy.NewRunner(*as_command)
-	objcopy := spicy.NewRunner(*objcopy_command)
-	preprocessed, err := spicy.PreprocessSpec(f, gcc, includeFlags, defineFlags, undefineFlags)
-	spec, err := spicy.ParseSpec(preprocessed)
+	gcc := NewRunner(*cpp_command)
+	ld := NewRunner(*ld_command)
+	as := NewRunner(*as_command)
+	objcopy := NewRunner(*objcopy_command)
+	preprocessed, err := PreprocessSpec(f, gcc, includeFlags, defineFlags, undefineFlags)
+	if err != nil {
+		panic(err)
+	}
+
+	spec, err := ParseSpec(preprocessed)
 	if err != nil {
 		panic(err)
 	}
@@ -117,18 +120,18 @@ func main() {
 				if err != nil {
 					panic(err)
 				}
-				spicy.CreateRawObjectWrapper(f, include+".o", ld)
+				CreateRawObjectWrapper(f, include+".o", ld)
 			}
 		}
-		entry, err := spicy.CreateEntryBinary(w, as)
+		entry, err := CreateEntryBinary(w, as)
 		if err != nil {
 			panic(err)
 		}
-		linked_object, err := spicy.LinkSpec(w, ld, entry)
+		linked_object, err := LinkSpec(w, ld, entry)
 		if err != nil {
 			panic(err)
 		}
-		binarized_object, err := spicy.BinarizeObject(linked_object, objcopy)
+		binarized_object, err := BinarizeObject(linked_object, objcopy)
 		if err != nil {
 			panic(err)
 		}

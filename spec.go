@@ -1,4 +1,4 @@
-package spicy
+package main
 
 import (
 	"container/list"
@@ -180,7 +180,7 @@ func convertSegmentAst(s *SegmentAst) (*Segment, error) {
 			if statement.Value.ConstantValue.Lhs.Symbol != "" {
 				seg.StackInfo.Start = statement.Value.ConstantValue.Lhs.Symbol
 			} else {
-				seg.StackInfo.Start = string(statement.Value.ConstantValue.Lhs.Int)
+				seg.StackInfo.Start = fmt.Sprint(statement.Value.ConstantValue.Lhs.Int)
 			}
 			if statement.Value.ConstantValue.Rhs.Int != 0 {
 				seg.StackInfo.Offset = statement.Value.ConstantValue.Rhs.Int
@@ -266,13 +266,10 @@ func PreprocessSpec(file io.Reader, gcc Runner, includeFlags []string, defineFla
 
 func ParseSpec(r io.Reader) (*Spec, error) {
 	log.Infof("Parsing spec")
-	parser, err := participle.Build(&SpecAst{})
-	if err != nil {
-		return nil, err
-	}
+	parser := participle.MustBuild(&SpecAst{})
 
 	specAst := &SpecAst{}
-	err = parser.Parse(r, specAst)
+	var err = parser.Parse(r, specAst)
 	if err != nil {
 		return nil, err
 	}

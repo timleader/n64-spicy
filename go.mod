@@ -8,7 +8,6 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.7.0
 	github.com/trhodeos/n64rom v0.0.0-20180318220953-504dba7b4d46
-	github.com/trhodeos/spicy v0.5.0
 )
 
 require (

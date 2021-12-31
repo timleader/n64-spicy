@@ -1,4 +1,4 @@
-package spicy
+package main
 
 const hi32Bit = 0x80000000
 const signExtend64BitMask = 0xFFFFFFFF00000000

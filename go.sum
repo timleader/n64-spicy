@@ -19,8 +19,6 @@ github.com/trhodeos/ecoff v0.0.0-20180301004534-e54570a0fac2 h1:HCqtzev3tcacvjIY
 github.com/trhodeos/ecoff v0.0.0-20180301004534-e54570a0fac2/go.mod h1:j7+nPHFAbtDqf/uTZOpeGusvMQlZzm/13seIlMvMzCI=
 github.com/trhodeos/n64rom v0.0.0-20180318220953-504dba7b4d46 h1:ib3z0firyJYY9q6f/R8chhrPbF/yeWZgxXCZ9v4sbX4=
 github.com/trhodeos/n64rom v0.0.0-20180318220953-504dba7b4d46/go.mod h1:cl2JUD51x3n3WAfOqU20tonGb1G+5bh8IhEuLTkjCzo=
-github.com/trhodeos/spicy v0.5.0 h1:hdggMjPUH9eN+0oazTWJrGOZUaajscl8+AnLL12/QAE=
-github.com/trhodeos/spicy v0.5.0/go.mod h1:JoK7dddH7htt8kKRL85REv5w7BNABNHbK89BASabzaA=
 golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 h1:YyJpGZS1sBuBCzLAR1VEpK193GlqGZbnPFnPV/5Rsb4=
 golang.org/x/sys v0.0.0-20191026070338-33540a1f6037/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
